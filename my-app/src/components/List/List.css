@@ -1,0 +1,11 @@
+.list {
+    width: 400px;
+    background-color: lightgray;
+    border-radius: 10px;
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    padding: 15px 0;
+    overflow-y: scroll;
+}
