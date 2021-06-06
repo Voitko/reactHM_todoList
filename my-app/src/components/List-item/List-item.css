@@ -1,13 +1,14 @@
 .list-item {
     width: 85%;
-    padding: 15px 15px 0 15px;
-    min-height: 50px;
+    padding: 20px;
+    min-height: 30px;
     border: 1px solid rgb(85, 83, 83);
     border-radius: 10px;
     margin: 0 auto;
     margin-bottom: 20px;
     text-align: center;
     color: rgb(75, 75, 75);
+    overflow-x: visible;
 }
 .list-item:last-of-type {
     margin-bottom: none;
