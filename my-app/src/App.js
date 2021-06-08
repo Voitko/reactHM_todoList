@@ -7,15 +7,13 @@ import Form from './components/Form'
 export class App extends Component {
     state = {
         data: [
-            { label: 'Нужно покушать', id: 'asydd' },
-            { label: 'Сделать дз', id: 'assdd'},
-            { label: 'Прогуляться пеерд сном', id: 'asdfd' }
+            { label: 'Нужно покушать', id: 'asydd', isDone: false }
         ],
         inputValue: 'Hello World'
     }
-    onClickHandler = () => {
+    onButtonAdd = () => {
         this.setState(({ data, inputValue }) => ({
-            data: [...this.state.data, { label: inputValue, id: Date.now() }]
+            data: [...this.state.data, { label: inputValue, id: Date.now(), isDone: false}]
         }))
     }
     onForm = (e) => {
@@ -23,14 +21,24 @@ export class App extends Component {
         inputValue: e.target.value
         })
     }
-    render() {
-        return (
-            <div className='todoList'>
-            <List posts={ this.state.data } />
-            <Form inputValue={ this.state.inputValue } 
-              onForm={ this.onForm }
-              onClick={ this.onClickHandler }
-            />
+    
+    toogleToDo = (idName) => {
+        let newData = [...this.state.data];
+        const index = newData.findIndex(elem => elem.id === idName);
+        newData[index] = Object.assign({}, newData[index], {isDone: !newData[index].isDone});
+        this.setState({ data: newData })
+  }
+
+  render() {
+    const { data, inputValue } = this.state;
+    
+      return (
+            <div className = 'todoList'>
+          <List posts = {data} onListItem = {this.toogleToDo}/>
+                <Form inputValue = { inputValue } 
+                  onForm = { this.onForm }
+                  onButtonAdd = { this.onButtonAdd }
+                />
             </div>
         )
     }

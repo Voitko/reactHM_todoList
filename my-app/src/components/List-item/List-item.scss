@@ -9,9 +9,9 @@
     text-align: center;
     color: rgb(75, 75, 75);
     overflow-x: visible;
-}
-.list-item:last-of-type {
-    margin-bottom: none;
+    &:last-of-type {
+        margin-bottom: none;
+    }
 }
 .active {
     background-color: rgb(182, 174, 174);

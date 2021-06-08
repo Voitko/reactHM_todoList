@@ -1,27 +1,22 @@
 import React, { Component } from 'react'
-import './List-item.css'
+import './List-item.scss'
 export class Listitem extends Component {
-    state = {
-        isDone: false
-    }
     render() {
-        let classesListItem = 'list-item';
-        const  { isDone } = this.state;
-        if (isDone) {
-            classesListItem += ' active'
-        }
+    let classesListItem = 'list-item';
+    const { isDone } = this.props
+    if (isDone) {
+        classesListItem += ' active'
+    }
+        const { data } = this.props;
+        
         return (
-            <li onClick={ this.onListItem }
+            <li onClick={ this.props.onListItem }
             className={ classesListItem }>
-                { this.props.data }
+                { data }
             </li>
         ) 
     }
-    onListItem = () => {
-        this.setState(({ isDone }) => ({
-            isDone: !isDone
-        }))
-    }
+    
 }
 
 export default Listitem;
